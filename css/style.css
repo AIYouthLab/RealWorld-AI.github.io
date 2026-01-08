@@ -331,6 +331,73 @@ code {
     border: 1px solid var(--accent-color);
 }
 
+/* Pipeline Flow (Automated Validation) */
+.pipeline-flow {
+    display: flex;
+    align-items: stretch;
+    gap: 0.5rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.pipeline-step {
+    flex: 1;
+    min-width: 180px;
+    max-width: 280px;
+    background: rgba(100, 255, 218, 0.05);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.pipeline-step:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-3px);
+}
+
+.pipeline-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.pipeline-content h4 {
+    margin-bottom: 0.5rem;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.pipeline-content p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.pipeline-arrow {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    padding: 0 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .pipeline-flow {
+        flex-direction: column;
+        align-items: center;
+    }
+    .pipeline-arrow {
+        transform: rotate(90deg);
+        padding: 0.5rem 0;
+    }
+    .pipeline-step {
+        max-width: 100%;
+    }
+}
+
+/* Legacy Process Steps */
 .process-steps {
     display: flex;
     justify-content: space-between;
@@ -652,12 +719,29 @@ code {
     margin-top: 2rem;
 }
 
+.impact-grid-2col {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .impact-grid-2col {
+        grid-template-columns: 1fr;
+    }
+}
+
 .impact-item {
     padding: 1.5rem;
     background: rgba(255, 255, 255, 0.03);
     border-radius: 8px;
     border: 1px solid var(--border-color);
     transition: all 0.3s;
+}
+
+.impact-item.large {
+    padding: 2rem;
 }
 
 .impact-item:hover {
@@ -671,15 +755,29 @@ code {
     margin-bottom: 1rem;
 }
 
+.impact-item.large .impact-icon {
+    font-size: 2.5rem;
+}
+
 .impact-item h4 {
     color: #fff;
     margin-bottom: 0.5rem;
     font-family: var(--font-sans);
 }
 
+.impact-item.large h4 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
 .impact-item p {
     font-size: 0.9rem;
     margin: 0;
+}
+
+.impact-item.large p {
+    font-size: 1rem;
+    line-height: 1.6;
 }
 
 /* Future Items */
