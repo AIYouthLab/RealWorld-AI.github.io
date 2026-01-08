@@ -1,1 +1,724 @@
-hello
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinsoo Agent - Technical Report | SOTA on SWE-bench Lite</title>
+    <meta name="description" content="Vinsoo Agent achieves 88% on SWE-bench Lite with qwen3-max, surpassing Claude-based AI coding tools.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/infra.css">
+    <link rel="stylesheet" href="css/tools.css">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+</head>
+<body>
+    <div class="background-grid"></div>
+    <div class="background-glow"></div>
+
+    <nav class="navbar">
+        <div class="logo-container">
+            <img src="assets/logo.png" alt="Vinsoo Logo" class="logo">
+            <span class="logo-text">Vinsoo Agent</span>
+        </div>
+        <div class="nav-controls">
+            <a href="https://github.com/RealWorld-AI" class="github-link" target="_blank">
+                <svg height="24" width="24" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+                </svg>
+            </a>
+            <button id="lang-toggle" class="lang-btn">中文</button>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="badge">🏆 #1 on SWE-bench Lite</div>
+                <h1 class="glitch-text" data-text="Vinsoo Agent">Vinsoo Agent</h1>
+                <p class="hero-subtitle" data-en="The First AI IDE Powered by a Cloud-Based Secure Agent Team" data-zh="全球首个搭载云端安全 Agent 编程团队的 AI IDE">
+                    The First AI IDE Powered by a Cloud-Based Secure Agent Team
+                </p>
+                <p class="hero-tagline" data-en="Achieving SOTA with domestic Chinese LLM — proving that cutting-edge AI coding doesn't require proprietary Western models." 
+                   data-zh="使用国产大模型达到 SOTA —— 证明尖端 AI 编程无需依赖海外闭源模型。">
+                    Achieving SOTA with domestic Chinese LLM — proving that cutting-edge AI coding doesn't require proprietary Western models.
+                </p>
+                <div class="score-card">
+                    <div class="score-item highlight-score">
+                        <span class="score-value">88%</span>
+                        <span class="score-label">Pass@1</span>
+                    </div>
+                    <div class="score-item">
+                        <span class="score-value">264/300</span>
+                        <span class="score-label" data-en="Solved" data-zh="已解决">Solved</span>
+                    </div>
+                    <div class="score-item">
+                        <span class="score-value">qwen3-max</span>
+                        <span class="score-label" data-en="Model" data-zh="模型">Model</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why This Matters -->
+        <section id="significance" class="section card highlight-card">
+            <h2 data-en="Why This Matters" data-zh="为何重要">Why This Matters</h2>
+            <div class="content">
+                <p data-en="SWE-bench Lite is a challenging benchmark that evaluates AI systems on real-world GitHub issues from popular open-source Python projects. Each task requires understanding complex codebases, diagnosing bugs, implementing fixes, and passing test suites — mirroring the daily work of professional software engineers."
+                   data-zh="SWE-bench Lite 是一项极具挑战性的基准测试，评估 AI 系统在真实 GitHub 问题上的表现，这些问题来自流行的开源 Python 项目。每个任务都需要理解复杂的代码库、诊断 bug、实现修复并通过测试套件 —— 这正是专业软件工程师的日常工作。">
+                   SWE-bench Lite is a challenging benchmark that evaluates AI systems on real-world GitHub issues from popular open-source Python projects. Each task requires understanding complex codebases, diagnosing bugs, implementing fixes, and passing test suites — mirroring the daily work of professional software engineers.
+                </p>
+                <div class="key-achievements">
+                    <div class="achievement-item">
+                        <span class="achievement-icon">🥇</span>
+                        <div>
+                            <strong data-en="First Place" data-zh="第一名">First Place</strong>
+                            <p data-en="Highest score among all evaluated systems on SWE-bench Lite" data-zh="SWE-bench Lite 上所有评估系统中的最高分">Highest score among all evaluated systems on SWE-bench Lite</p>
+                        </div>
+                    </div>
+                    <div class="achievement-item">
+                        <span class="achievement-icon">🇨🇳</span>
+                        <div>
+                            <strong data-en="100% Domestic Model" data-zh="100% 国产模型">100% Domestic Model</strong>
+                            <p data-en="Achieved entirely with Alibaba's Qwen3-max, no Claude/GPT-4 required" data-zh="完全使用阿里通义千问 Qwen3-max，无需 Claude/GPT-4">Achieved entirely with Alibaba's Qwen3-max, no Claude/GPT-4 required</p>
+                        </div>
+                    </div>
+                    <div class="achievement-item">
+                        <span class="achievement-icon">⚡</span>
+                        <div>
+                            <strong data-en="Production-Ready" data-zh="生产就绪">Production-Ready</strong>
+                            <p data-en="Same system powers Vinsoo IDE — not just a benchmark prototype" data-zh="同一系统驱动 Vinsoo IDE —— 不只是基准测试原型">Same system powers Vinsoo IDE — not just a benchmark prototype</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Abstract -->
+        <section id="abstract" class="section card">
+            <h2 data-en="Abstract" data-zh="摘要">Abstract</h2>
+            <div class="content">
+                <p data-en="Vinsoo is an AI IDE launched by RealWorld.AI, featuring an automated project development process from requirement confirmation to delivery and acceptance. Utilizing only the domestic qwen3-max model, Vinsoo has achieved state-of-the-art performance on SWE-bench Lite with an 88% success rate (264/300 tasks), surpassing popular AI coding products powered by Claude such as Cursor, Codex, and Claude Code."
+                   data-zh="Vinsoo 是芸思智能（RealWorld.AI）推出的 AI IDE，主打从需求确认到交付验收，AI 全流程自动推进项目开发。仅使用国产大模型 Qwen，Vinsoo 在 SWE-bench Lite 上取得了 88% 的 SOTA 成绩（解决 264/300 个任务），在复杂项目级开发任务中超越了搭载 Claude 的 Cursor、Codex、Claude Code 等流行 AI 编程产品。">
+                   Vinsoo is an AI IDE launched by RealWorld.AI, featuring an automated project development process from requirement confirmation to delivery and acceptance. Utilizing only the domestic qwen3-max model, Vinsoo has achieved state-of-the-art performance on SWE-bench Lite with an 88% success rate (264/300 tasks), surpassing popular AI coding products powered by Claude such as Cursor, Codex, and Claude Code.
+                </p>
+                <p class="highlight-text" data-en="What sets Vinsoo apart is that it independently drives the entire development process — from understanding requirements, to writing code, to testing and debugging — without human intervention at each step."
+                   data-zh="Vinsoo 的独特之处在于：它能独立驱动整个开发流程 —— 从理解需求、编写代码到测试调试 —— 无需人工干预每个步骤。">
+                   What sets Vinsoo apart is that it independently drives the entire development process — from understanding requirements, to writing code, to testing and debugging — without human intervention at each step.
+                </p>
+            </div>
+        </section>
+
+        <!-- Leaderboard Comparison -->
+        <section id="leaderboard" class="section card">
+            <h2 data-en="Leaderboard Comparison" data-zh="排行榜对比">Leaderboard Comparison</h2>
+            <p class="section-intro" data-en="How Vinsoo compares to leading AI coding systems on SWE-bench Lite:" 
+               data-zh="Vinsoo 与领先 AI 编程系统在 SWE-bench Lite 上的对比：">
+               How Vinsoo compares to leading AI coding systems on SWE-bench Lite:
+            </p>
+            <div class="results-table-container">
+                <table class="results-table leaderboard-table">
+                    <thead>
+                        <tr>
+                            <th data-en="Rank" data-zh="排名">Rank</th>
+                            <th data-en="System" data-zh="系统">System</th>
+                            <th data-en="Model" data-zh="模型">Model</th>
+                            <th data-en="Score" data-zh="分数">Score</th>
+                            <th data-en="Open Source" data-zh="开源">Open Source</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="highlight-row our-system">
+                            <td>🥇 1</td>
+                            <td><strong>Vinsoo Agent</strong></td>
+                            <td>Qwen3-max</td>
+                            <td><strong>88.0%</strong></td>
+                            <td data-en="Partial" data-zh="❌">Partial</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Refact.ai Agent</td>
+                            <td>Claude 3.7 + o4-mini</td>
+                            <td>60.0%</td>
+                            <td>✅</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Amazon Q Developer</td>
+                            <td>Claude 3.5</td>
+                            <td>55.7%</td>
+                            <td>❌</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>OpenHands CodeAct</td>
+                            <td>Claude 3.5</td>
+                            <td>53.0%</td>
+                            <td>✅</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Aider</td>
+                            <td>Claude 3.5 Opus</td>
+                            <td>45.3%</td>
+                            <td>✅</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="table-note" data-en="* Data from SWE-bench official leaderboard as of January 2026. Vinsoo achieves 25+ percentage points higher than the next best system." 
+               data-zh="* 数据来自 2026 年 1 月 SWE-bench 官方排行榜。Vinsoo 比第二名高出 25 个百分点以上。">
+               * Data from SWE-bench official leaderboard as of January 2026. Vinsoo achieves 25+ percentage points higher than the next best system.
+            </p>
+        </section>
+
+        <!-- Agent Workflow -->
+        <section id="workflow" class="section">
+            <h2 data-en="Agent Workflow" data-zh="Agent 工作流程">Agent Workflow</h2>
+            <p class="section-intro" data-en="Vinsoo Agent follows a structured, iterative workflow for each SWE-bench task. This serves as high-level guidance — the Agent adapts its strategy based on task context."
+               data-zh="Vinsoo Agent 为每个 SWE-bench 任务遵循结构化的迭代工作流程。这作为高层指导 —— Agent 会根据任务上下文调整策略。">
+               Vinsoo Agent follows a structured, iterative workflow for each SWE-bench task. This serves as high-level guidance — the Agent adapts its strategy based on task context.
+            </p>
+            <div class="workflow-steps">
+                <div class="workflow-step">
+                    <div class="workflow-number">1</div>
+                    <div class="workflow-content">
+                        <h4 data-en="Problem Analysis" data-zh="问题分析">Problem Analysis</h4>
+                        <p data-en="Parse the issue description. Identify key symptoms, expected behavior, and affected components." 
+                           data-zh="解析问题描述。识别关键症状、预期行为和受影响的组件。">
+                           Parse the issue description. Identify key symptoms, expected behavior, and affected components.
+                        </p>
+                    </div>
+                </div>
+                <div class="workflow-step">
+                    <div class="workflow-number">2</div>
+                    <div class="workflow-content">
+                        <h4 data-en="Repository Investigation" data-zh="仓库调查">Repository Investigation</h4>
+                        <p data-en="Explore the codebase structure. Locate relevant files, understand dependencies, and map the architecture." 
+                           data-zh="探索代码库结构。定位相关文件、理解依赖关系并绘制架构图。">
+                           Explore the codebase structure. Locate relevant files, understand dependencies, and map the architecture.
+                        </p>
+                    </div>
+                </div>
+                <div class="workflow-step">
+                    <div class="workflow-number">3</div>
+                    <div class="workflow-content">
+                        <h4 data-en="Reproduction Script" data-zh="复现脚本">Reproduction Script</h4>
+                        <p data-en="Create and execute a script to reproduce the bug. Validate that the issue exists before attempting fixes." 
+                           data-zh="创建并执行脚本来复现 bug。在尝试修复之前验证问题确实存在。">
+                           Create and execute a script to reproduce the bug. Validate that the issue exists before attempting fixes.
+                        </p>
+                    </div>
+                </div>
+                <div class="workflow-step">
+                    <div class="workflow-number">4</div>
+                    <div class="workflow-content">
+                        <h4 data-en="Plan & Implement" data-zh="规划与实现">Plan & Implement</h4>
+                        <p data-en="Analyze the codebase via search_codebase, formulate a solution strategy, and apply precise modifications using modify_script." 
+                           data-zh="通过 search_codebase 分析代码库，制定解决方案策略，并使用 modify_script 进行精确修改。">
+                           Analyze codebase, formulate strategy, and apply modifications via <code>modify_script</code>.
+                        </p>
+                    </div>
+                </div>
+                <div class="workflow-step">
+                    <div class="workflow-number">5</div>
+                    <div class="workflow-content">
+                        <h4 data-en="Apply & Test" data-zh="应用与测试">Apply & Test</h4>
+                        <p data-en="Implement the fix, run tests, and verify that the original issue is resolved without introducing regressions." 
+                           data-zh="实施修复，运行测试，验证原始问题已解决且未引入回归问题。">
+                           Implement the fix, run tests, and verify that the original issue is resolved without introducing regressions.
+                        </p>
+                    </div>
+                </div>
+                <div class="workflow-step">
+                    <div class="workflow-number">6</div>
+                    <div class="workflow-content">
+                        <h4 data-en="Iterate Until Solved" data-zh="迭代直到解决">Iterate Until Solved</h4>
+                        <p data-en="If validation fails, analyze the failure via create_bug_report, return to step 4, and try alternative approaches until all tests pass." 
+                           data-zh="如果验证失败，通过 create_bug_report 分析失败原因，返回步骤 4，尝试替代方案直到所有测试通过。">
+                           If validation fails, analyze via <code>create_bug_report</code>, return to step 4, and iterate until solved.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <p class="workflow-note" data-en="The Agent autonomously decides when to skip steps, repeat phases, or invoke additional reasoning. There is no rigid script — only strategic guidance."
+               data-zh="Agent 自主决定何时跳过步骤、重复阶段或调用额外推理。没有刚性脚本 —— 只有战略指导。">
+               The Agent autonomously decides when to skip steps, repeat phases, or invoke additional reasoning. There is no rigid script — only strategic guidance.
+            </p>
+        </section>
+
+        <!-- System Overview -->
+        <section id="system" class="section">
+            <h2 data-en="System Overview" data-zh="系统介绍">System Overview</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <h3 data-en="End-to-End Automation" data-zh="全流程自动化">End-to-End Automation</h3>
+                    <p data-en="While some AI coding solutions take a semi-autonomous approach — requiring users to manually invoke tools and guide each step — Vinsoo Agent operates independently from start to finish. It handles the entire lifecycle of software development, from requirements gathering to final delivery."
+                       data-zh="虽然一些 AI 编程解决方案采用半自主方法 —— 需要用户手动调用工具并指导每个步骤 —— Vinsoo Agent 从头到尾独立运作。它处理软件开发的整个生命周期，从需求收集到最终交付。">
+                       While some AI coding solutions take a semi-autonomous approach — requiring users to manually invoke tools and guide each step — Vinsoo Agent operates independently from start to finish.
+                    </p>
+                    <p data-en="It decouples the complex decision-making process of large models into deterministic engineering tasks, making behavior decomposable and traceable — breaking the paradigm of 'one-shot generation with unpredictable outcomes'."
+                       data-zh="它将大模型的复杂决策过程分解为确定性工程任务，实现行为的可分解与可追溯，突破'一次性生成、成败难料'的困境。">
+                       It decouples the complex decision-making process into deterministic engineering tasks, making behavior decomposable and traceable.
+                    </p>
+                </div>
+                <div class="card">
+                    <h3 data-en="Systemic Perception" data-zh="系统性感知能力">Systemic Perception</h3>
+                    <p data-en="Traditional AI coding tools only see what's in the context window. Vinsoo transforms 'imperceptible' data — underlying system architecture, runtime status, cross-node network topology — into structured event streams."
+                       data-zh="传统 AI 编程工具只能看到上下文窗口中的内容。Vinsoo 将'非感知'数据 —— 底层系统架构、运行时状态、跨节点网络拓扑 —— 转化为结构化事件流。">
+                       Traditional AI coding tools only see what's in the context window. Vinsoo transforms "imperceptible" data into structured event streams.
+                    </p>
+                    <p data-en="This eliminates information barriers between AI and complex scenarios, enabling the Agent to reason about the full system state — not just visible code."
+                       data-zh="这消除了 AI 与复杂场景之间的信息壁垒，使 Agent 能够推理完整的系统状态 —— 而不仅仅是可见的代码。">
+                       This eliminates information barriers between AI and complex scenarios, enabling full system state reasoning.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Approach -->
+        <section id="technical" class="section">
+            <h2 data-en="Technical Approach" data-zh="核心技术">Technical Approach</h2>
+            
+            <!-- Model Choice -->
+            <div class="card mb-2">
+                <h3 data-en="3.0 Model Choice: Qwen3-max" data-zh="3.0 模型选择：Qwen3-max">3.0 Model Choice: Qwen3-max</h3>
+                <p data-en="Vinsoo uses Alibaba's Qwen3-max as its core orchestration model. This choice demonstrates that state-of-the-art coding performance is achievable with domestic Chinese LLMs, removing dependency on Western proprietary models like Claude or GPT-4."
+                   data-zh="Vinsoo 使用阿里巴巴的 Qwen3-max 作为核心编排模型。这一选择证明了使用国产中国大模型可以实现最先进的编程性能，消除了对 Claude 或 GPT-4 等西方专有模型的依赖。">
+                   Vinsoo uses Alibaba's Qwen3-max as its core orchestration model. This choice demonstrates that state-of-the-art coding performance is achievable with domestic Chinese LLMs.
+                </p>
+                <div class="model-specs">
+                    <div class="spec-item">
+                        <strong data-en="Temperature" data-zh="温度">Temperature</strong>: <code>0.0</code>
+                    </div>
+                    <div class="spec-item">
+                        <strong data-en="Context" data-zh="上下文">Context</strong>: <span data-en="Extended via DYCODE/COTER" data-zh="通过 DYCODE/COTER 扩展">Extended via DYCODE/COTER</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Context Engineering -->
+            <div class="card mb-2">
+                <h3 data-en="3.1 Ultra-Long Context Engineering" data-zh="3.1 超长上下文工程">3.1 Ultra-Long Context Engineering</h3>
+                <p data-en="Real-world codebases often exceed millions of tokens. Vinsoo achieves effective context scaling to tens of millions through two proprietary strategies:" 
+                   data-zh="真实世界的代码库通常超过数百万 token。Vinsoo 通过两种专有策略实现了高达千万级别的有效上下文扩展：">
+                   Real-world codebases often exceed millions of tokens. Vinsoo achieves effective context scaling through two proprietary strategies:
+                </p>
+                <ul class="feature-list">
+                    <li>
+                        <strong data-en="DYCODE (Dynamic Code Encoding)" data-zh="DYCODE（动态代码编码）">DYCODE (Dynamic Code Encoding)</strong>: 
+                        <span data-en="Retains only mapping encodings for reconstructible information. When needed, a reverse decoder quickly restores the original content — dramatically reducing real-time context load while preserving semantic completeness." 
+                              data-zh="对可重构信息仅保留映射编码，需要时通过逆向解码器快速恢复原始内容 —— 极大降低实时上下文负载，同时保持语义完整性。">
+                              Retains only mapping encodings for reconstructible information, quickly restoring via reverse decoder when needed.
+                        </span>
+                    </li>
+                    <li>
+                        <strong data-en="COTER (Context Orchestration via Topology and Entropy Regulation)" data-zh="COTER（拓扑熵调控上下文编排）">COTER</strong>: 
+                        <span data-en="Macroscopically regulates dynamic encoding across Multi-Agent systems based on global topological data modeling and entropy distribution prediction — ensuring each agent receives precisely the context it needs." 
+                              data-zh="基于全局拓扑数据建模和熵变分布预测，宏观调控多 Agent 系统的上下文信息动态编码 —— 确保每个 Agent 精确获取所需上下文。">
+                              Macroscopically regulates dynamic encoding based on global topological data modeling and entropy distribution prediction.
+                        </span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Automated Validation Pipeline -->
+            <div class="card mb-2 highlight-card">
+                <h3 data-en="3.2 Automated Validation Pipeline" data-zh="3.2 自动化验证流水线">3.2 Automated Validation Pipeline</h3>
+                <p data-en="One of Vinsoo's key innovations is the automated validation pipeline — a structured three-step process that ensures code quality through LLM-powered test generation and validation."
+                   data-zh="Vinsoo 的关键创新之一是自动化验证流水线 —— 一个结构化的三步流程，通过 LLM 驱动的测试生成和验证确保代码质量。">
+                   One of Vinsoo's key innovations is the automated validation pipeline — ensuring code quality through LLM-powered testing.
+                </p>
+                <div class="process-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4 data-en="Test Generation" data-zh="用例生成">Test Generation</h4>
+                            <p data-en="Automatically generate comprehensive test cases based on code changes and requirements." data-zh="基于代码变更和需求自动生成全面的测试用例。">Auto-generate test cases based on code changes.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4 data-en="Execute & Record" data-zh="执行记录">Execute & Record</h4>
+                            <p data-en="Run tests with hash-based change detection for precise regression tracking." data-zh="运行测试并通过哈希检测实现精确回归追踪。">Hash-based detection for regression tracking.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4 data-en="LLM Validate" data-zh="智能验证">LLM Validate</h4>
+                            <p data-en="Intelligent validation beyond simple pass/fail checks." data-zh="超越简单通过/失败的智能验证。">Beyond simple pass/fail checks.</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="note" data-en="This pipeline runs automatically after each code modification, enabling the Agent to catch issues early and iterate rapidly without manual intervention."
+                   data-zh="此流水线在每次代码修改后自动运行，使 Agent 能够及早发现问题并快速迭代，无需人工干预。">
+                   This pipeline runs automatically after each code modification, enabling rapid iteration without manual intervention.
+                </p>
+            </div>
+
+            <!-- Tool Suite -->
+            <div class="card mb-2">
+                <h3 data-en="3.3 Tool Suite" data-zh="3.3 工具集">3.3 Tool Suite</h3>
+                <p data-en="Vinsoo is equipped with specialized tools covering the complete software engineering workflow. These tools enable the Agent to navigate codebases, understand dependencies, make precise changes, and verify solutions — all autonomously." 
+                   data-zh="Vinsoo 配备了覆盖完整软件工程工作流的专用工具。这些工具使 Agent 能够导航代码库、理解依赖、进行精确更改并验证解决方案 —— 全部自主完成。">
+                   Vinsoo is equipped with specialized tools covering the complete software engineering workflow:
+                </p>
+                
+                <div class="tools-grid extended">
+                    <!-- 1. Code Exploration -->
+                    <div class="tool-category">
+                        <h4 data-en="Code Exploration" data-zh="代码探索">Code Exploration</h4>
+                        <ul>
+                            <li><code>search_codebase</code></li>
+                            <li><code>read_file_content</code></li>
+                            <li><code>read_file_lines</code></li>
+                            <li><code>get_directory_structure</code></li>
+                            <li><code>read_picture_content</code></li>
+                        </ul>
+                    </div>
+
+                    <!-- 2. Code Editing -->
+                    <div class="tool-category">
+                        <h4 data-en="Code Editing" data-zh="代码编辑">Code Editing</h4>
+                        <ul>
+                            <li><code>modify_script</code></li>
+                        </ul>
+                    </div>
+
+                    <!-- 3. Execution -->
+                    <div class="tool-category">
+                        <h4 data-en="Execution" data-zh="命令执行">Execution</h4>
+                        <ul>
+                            <li><code>run_command</code></li>
+                            <li><code>get_session_log</code></li>
+                        </ul>
+                    </div>
+
+                    <!-- 4. Testing & Validation -->
+                    <div class="tool-category highlight-category">
+                        <h4 data-en="Testing & Validation" data-zh="测试验证">Testing & Validation</h4>
+                        <ul>
+                            <li><code>generate_script_test_case_group</code></li>
+                            <li><code>add_script_test_case</code></li>
+                            <li><code>submit_and_validate_script_testing_records</code></li>
+                            <li><code>generate_task_json</code></li>
+                        </ul>
+                        <div class="tool-features">
+                            <span class="feature-tag" data-en="LLM Auto-Validation" data-zh="LLM 自动验证">LLM Auto-Validation</span>
+                            <span class="feature-tag" data-en="Hash-Based Detection" data-zh="哈希检测">Hash-Based Detection</span>
+                        </div>
+                    </div>
+
+                    <!-- 5. Bug Tracking -->
+                    <div class="tool-category highlight-category">
+                        <h4 data-en="Bug Tracking" data-zh="Bug 追踪">Bug Tracking</h4>
+                        <ul>
+                            <li><code>create_bug_report</code></li>
+                            <li><code>transfer_bug</code></li>
+                            <li><code>resolve_bug</code></li>
+                        </ul>
+                        <div class="tool-features">
+                            <span class="feature-tag" data-en="Role Verification" data-zh="角色权限校验">Role Verification</span>
+                            <span class="feature-tag" data-en="Lifecycle Logs" data-zh="生命周期日志">Lifecycle Logs</span>
+                        </div>
+                    </div>
+
+                    <!-- 6. Execution Tracing -->
+                    <div class="tool-category highlight-category">
+                        <h4 data-en="Execution Tracing" data-zh="执行链路追踪">Execution Tracing</h4>
+                        <ul>
+                            <li><code>record_action_start</code></li>
+                            <li><code>record_action_complete</code></li>
+                            <li><code>get_execution_logs</code></li>
+                        </ul>
+                        <div class="tool-features">
+                            <span class="feature-tag" data-en="Full Audit" data-zh="完整审计">Full Audit</span>
+                            <span class="feature-tag" data-en="State Tracing" data-zh="状态追踪">State Tracing</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Multi-Agent -->
+            <div class="grid-2">
+                <div class="card">
+                    <h3 data-en="3.4 Multi-Agent Architecture" data-zh="3.4 Multi-Agent 架构">3.4 Multi-Agent Architecture</h3>
+                    <p data-en="Designed on the principle of topological maximization parallelism, Vinsoo supports up to 8 agents running synchronously:" 
+                       data-zh="基于拓扑最大化并行原则设计，Vinsoo 可同时支持最多 8 个智能体同步运行：">
+                       Designed on topological maximization parallelism, supporting up to 8 agents:
+                    </p>
+                    <ul class="feature-list small">
+                        <li data-en="Context Engineer Agent — manages information flow" data-zh="上下文工程师 Agent — 管理信息流">Context Engineer Agent — manages information flow</li>
+                        <li data-en="Code Generation Agent — writes and modifies code" data-zh="代码生成 Agent — 编写和修改代码">Code Generation Agent — writes and modifies code</li>
+                        <li data-en="Autonomous Testing & Debugging Agent — validates changes" data-zh="自主测试与调试 Agent — 验证更改">Testing & Debugging Agent — validates changes</li>
+                        <li data-en="Pixel-Level UI Perception Agent — visual understanding" data-zh="像素级 UI 感知 Agent — 视觉理解">Pixel-Level UI Perception Agent — visual understanding</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3 data-en="3.5 RARV Iterative Loop" data-zh="3.5 RARV 迭代循环">3.5 RARV Iterative Loop</h3>
+                    <p data-en="Rationality → Action → Reflection → Verification. The Agent thinks, acts, learns from results, and verifies outcomes. There is no 'done' state — it continuously optimizes until the task is solved:"
+                       data-zh="理性 → 行动 → 反思 → 验证。Agent 思考、行动、从结果中学习并验证结果。没有"完成"状态 —— 它持续优化直到任务解决：">
+                       Rationality → Action → Reflection → Verification. No 'done' state — continuous optimization:
+                    </p>
+                    <ul class="feature-list small">
+                        <li data-en="Performance Optimization — reduce runtime overhead" data-zh="运行性能优化 — 减少运行时开销">Performance Optimization</li>
+                        <li data-en="Missing Test Coverage — add edge case tests" data-zh="新增缺失的测试覆盖 — 添加边缘情况测试">Missing Test Coverage</li>
+                        <li data-en="Documentation Improvement — update docstrings" data-zh="改进文档 — 更新文档字符串">Documentation Improvement</li>
+                        <li data-en="Refactoring Code Smells — clean up technical debt" data-zh="重构代码气味 — 清理技术债务">Refactoring Code Smells</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- System Infrastructure -->
+        <section id="infrastructure" class="section">
+            <h2 data-en="System Infrastructure" data-zh="系统基础设施">System Infrastructure</h2>
+            <div class="infra-grid">
+                <!-- Codebase Indexer -->
+                <div class="infra-card">
+                    <div class="infra-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                        </svg>
+                    </div>
+                    <h3 data-en="Codebase Indexer" data-zh="代码索引引擎">Codebase Indexer</h3>
+                    <p class="infra-desc" data-en="Provides intelligent indexing and semantic search capabilities for codebases of any scale." data-zh="为任意规模的代码库提供智能索引与语义搜索能力。">Provides intelligent indexing and semantic search capabilities for codebases.</p>
+                    <ul class="infra-features">
+                        <li>
+                            <span data-en="Syntax Tree Parsing (21 Languages)" data-zh="支持 21 种语言的语法树解析">Syntax Tree Parsing (21 Languages)</span>
+                        </li>
+                        <li>
+                            <span data-en="Smart Chunking & Vectorization" data-zh="智能代码分块与向量化">Smart Chunking & Vectorization</span>
+                        </li>
+                        <li>
+                            <span data-en="Incremental Change Detection" data-zh="增量变化检测">Incremental Change Detection</span>
+                        </li>
+                        <li>
+                            <span data-en="Supports `search_codebase`" data-zh="支撑 `search_codebase`">Supports <code>search_codebase</code></span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Agent Coordination -->
+                <div class="infra-card">
+                    <div class="infra-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                        </svg>
+                    </div>
+                    <h3 data-en="Agent Coordination" data-zh="Agent 协调服务">Agent Coordination</h3>
+                    <p class="infra-desc" data-en="Manages multi-agent collaboration, task scheduling, and state synchronization across the agent team." data-zh="管理多 Agent 协作、任务调度与整个 Agent 团队的状态同步。">Manages multi-agent collaboration, task scheduling, and state synchronization.</p>
+                    <ul class="infra-features">
+                        <li>
+                            <span data-en="Task Allocation & Tracking" data-zh="任务分配与追踪">Task Allocation & Tracking</span>
+                        </li>
+                        <li>
+                            <span data-en="Knowledge Base Management" data-zh="文档与知识库管理">Knowledge Base Management</span>
+                        </li>
+                        <li>
+                            <span data-en="Test Case Management & LLM Validation" data-zh="脚本测试用例管理与 LLM 验证">Test Case Management & LLM Validation</span>
+                        </li>
+                        <li>
+                            <span data-en="Supports Test Actions" data-zh="支撑测试相关 Action">Supports Test Actions</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Execution Environment -->
+                <div class="infra-card">
+                    <div class="infra-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                        </svg>
+                    </div>
+                    <h3 data-en="Execution Env" data-zh="执行环境服务">Execution Env</h3>
+                    <p class="infra-desc" data-en="Provides isolated, secure sandboxed environments for code execution with full audit trails." data-zh="提供隔离、安全的代码执行沙箱环境，具有完整审计追踪。">Provides isolated, secure sandboxed environments for code execution.</p>
+                    <ul class="infra-features">
+                        <li>
+                            <span data-en="Isolated Cloud Sandbox" data-zh="云端隔离执行环境">Isolated Cloud Sandbox</span>
+                        </li>
+                        <li>
+                            <span data-en="Multi-Runtime Support" data-zh="多语言运行时支持">Multi-Runtime Support</span>
+                        </li>
+                        <li>
+                            <span data-en="Terminal Session Management" data-zh="终端会话管理">Terminal Session Management</span>
+                        </li>
+                        <li>
+                            <span data-en="Supports `run_command`" data-zh="支撑 `run_command`">Supports <code>run_command</code></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Methodology -->
+        <section id="methodology" class="section card">
+            <h2 data-en="Methodology" data-zh="实验方法">Methodology</h2>
+            <p class="section-intro" data-en="Our evaluation follows SWE-bench Lite guidelines strictly, ensuring fair and reproducible comparison with other systems." 
+               data-zh="我们的评估严格遵循 SWE-bench Lite 指南，确保与其他系统进行公平和可复现的比较。">
+               Our evaluation follows SWE-bench Lite guidelines strictly:
+            </p>
+            <ul class="feature-list">
+                <li>
+                    <strong data-en="Input" data-zh="输入">Input</strong>: 
+                    <span data-en="Directly uses the `problem_statement` from SWE-bench Lite dataset — no additional hints or preprocessing." data-zh="直接使用 SWE-bench Lite 数据集中的 `problem_statement` —— 无额外提示或预处理。">Directly uses the <code>problem_statement</code> from SWE-bench Lite — no additional hints.</span>
+                </li>
+                <li>
+                    <strong data-en="Model" data-zh="模型">Model</strong>: 
+                    <span>Dashscope <code>qwen3-max</code> <span data-en="with temperature 0.0" data-zh="温度 0.0">with temperature 0.0</span></span>
+                </li>
+                <li>
+                    <strong data-en="Submission" data-zh="提交方式">Submission</strong>: 
+                    <span data-en="Pass@1 — single attempt per task, producing one final solution." data-zh="Pass@1 —— 每个任务单次尝试，产出一个最终解决方案。">Pass@1 — single attempt per task.</span>
+                </li>
+                <li>
+                    <strong data-en="Compliance" data-zh="合规性">Compliance</strong>: 
+                    <span data-en="No usage of SWE-bench test knowledge. No hints provided. No web browsing for solutions. Full autonomous operation."
+                          data-zh="不使用 SWE-bench 测试知识。不提供任何提示。不通过网页浏览查找解决方案。完全自主运行。">
+                          No test knowledge used. No hints. No web browsing. Full autonomous operation.
+                    </span>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Results -->
+        <section id="results" class="section card">
+            <h2 data-en="Evaluation Results" data-zh="评估结果">Evaluation Results</h2>
+            <div class="results-summary">
+                <p data-en="Out of 300 tasks in SWE-bench Lite, Vinsoo Agent solved 264 — achieving an 88% success rate. This represents a significant leap over previous state-of-the-art systems."
+                   data-zh="在 SWE-bench Lite 的 300 个任务中，Vinsoo Agent 解决了 264 个 —— 达到 88% 的成功率。这代表着对之前最先进系统的重大飞跃。">
+                   Out of 300 tasks in SWE-bench Lite, Vinsoo Agent solved 264 — achieving an 88% success rate.
+                </p>
+            </div>
+            <div class="results-table-container">
+                <table class="results-table">
+                    <thead>
+                        <tr>
+                            <th data-en="Metric" data-zh="指标">Metric</th>
+                            <th data-en="Value" data-zh="数值">Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-en="Total Tasks" data-zh="任务总数">Total Tasks</td>
+                            <td>300</td>
+                        </tr>
+                        <tr>
+                            <td data-en="Solved Tasks" data-zh="解决数量">Solved Tasks</td>
+                            <td>264</td>
+                        </tr>
+                        <tr>
+                            <td data-en="Unsolved Tasks" data-zh="未解决数量">Unsolved Tasks</td>
+                            <td>36</td>
+                        </tr>
+                        <tr class="highlight-row">
+                            <td data-en="Success Rate" data-zh="成功率">Success Rate</td>
+                            <td><strong>88.0%</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Why This Matters for Developers -->
+        <section id="impact" class="section card">
+            <h2 data-en="Impact for Developers" data-zh="开发者价值">Impact for Developers</h2>
+            <p class="section-intro" data-en="This isn't just about ranking highly on a benchmark — it's about real-world coding impact. What does an 88% solve rate on SWE-bench mean for your daily work?"
+               data-zh="这不仅仅是在基准测试上排名靠前 —— 而是关于真实世界的编程影响。SWE-bench 上 88% 的解决率对你的日常工作意味着什么？">
+               This isn't just about benchmarks — it's about real-world impact:
+            </p>
+            <div class="impact-grid">
+                <div class="impact-item">
+                    <span class="impact-icon">🚀</span>
+                    <h4 data-en="10x Faster Bug Fixes" data-zh="Bug 修复速度提升 10 倍">10x Faster Bug Fixes</h4>
+                    <p data-en="What takes hours of debugging can be solved in minutes. Vinsoo handles the investigation, reproduction, and fix — you just review." 
+                       data-zh="需要数小时调试的问题可以在几分钟内解决。Vinsoo 处理调查、复现和修复 —— 你只需审核。">
+                       What takes hours can be solved in minutes. You just review.
+                    </p>
+                </div>
+                <div class="impact-item">
+                    <span class="impact-icon">🎯</span>
+                    <h4 data-en="Focus on Creative Work" data-zh="专注创造性工作">Focus on Creative Work</h4>
+                    <p data-en="Delegate routine fixes and maintenance to AI. Spend your time on architecture, product decisions, and innovative features." 
+                       data-zh="将常规修复和维护委托给 AI。将时间花在架构、产品决策和创新功能上。">
+                       Delegate routine work. Focus on architecture and innovation.
+                    </p>
+                </div>
+                <div class="impact-item">
+                    <span class="impact-icon">🛡️</span>
+                    <h4 data-en="Reliable, Tested Code" data-zh="可靠、经过测试的代码">Reliable, Tested Code</h4>
+                    <p data-en="Vinsoo doesn't just write code — it tests, validates, and iterates until the solution works. No more 'it compiles' handoffs." 
+                       data-zh="Vinsoo 不仅编写代码 —— 它还测试、验证并迭代直到解决方案生效。不再有'能编译就行'的交接。">
+                       Writes, tests, validates, and iterates. No 'it compiles' handoffs.
+                    </p>
+                </div>
+                <div class="impact-item">
+                    <span class="impact-icon">🔐</span>
+                    <h4 data-en="Data Sovereignty" data-zh="数据主权">Data Sovereignty</h4>
+                    <p data-en="Built entirely on domestic Chinese LLMs — your code never leaves sovereign infrastructure. Ideal for enterprises with strict compliance requirements." 
+                       data-zh="完全基于国产中国大模型构建 —— 你的代码永远不会离开主权基础设施。非常适合有严格合规要求的企业。">
+                       100% domestic LLM. Code never leaves sovereign infrastructure.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Future Work -->
+        <section id="future" class="section card">
+            <h2 data-en="Looking Forward" data-zh="未来展望">Looking Forward</h2>
+            <p data-en="Vinsoo's performance on SWE-bench Lite demonstrates that AI agents are becoming increasingly capable of handling real-world software engineering tasks autonomously — not just generating code, but planning, debugging, testing, and refining it with minimal human input."
+               data-zh="Vinsoo 在 SWE-bench Lite 上的表现证明，AI Agent 正变得越来越有能力自主处理真实世界的软件工程任务 —— 不仅仅是生成代码，还包括规划、调试、测试和完善，且只需最少的人工输入。">
+               Vinsoo's performance demonstrates that AI agents are becoming capable of autonomous software engineering — planning, debugging, testing, and refining with minimal human input.
+            </p>
+            <div class="future-items">
+                <div class="future-item">
+                    <h4 data-en="SWE-bench Verified" data-zh="SWE-bench Verified">📋 SWE-bench Verified</h4>
+                    <p data-en="Our next benchmark target — with more rigorous testing criteria" data-zh="我们的下一个基准目标 —— 具有更严格的测试标准">Next benchmark target with rigorous testing</p>
+                </div>
+                <div class="future-item">
+                    <h4 data-en="Multi-Language Support" data-zh="多语言支持">🌐 Multi-Language Support</h4>
+                    <p data-en="Expanding beyond Python to JavaScript, TypeScript, Go, Rust" data-zh="从 Python 扩展到 JavaScript、TypeScript、Go、Rust">Expanding beyond Python</p>
+                </div>
+                <div class="future-item">
+                    <h4 data-en="Open Source Components" data-zh="开源组件">📖 Open Source Components</h4>
+                    <p data-en="Releasing core tools and prompt strategies for community contribution" data-zh="发布核心工具和提示策略供社区贡献">Releasing core tools for community</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section id="cta" class="section cta-section">
+            <h2 data-en="Experience Vinsoo Today" data-zh="立即体验 Vinsoo">Experience Vinsoo Today</h2>
+            <p data-en="The same AI Agent that achieves 88% on SWE-bench Lite is available in Vinsoo IDE — ready to accelerate your development workflow."
+               data-zh="在 SWE-bench Lite 上达到 88% 的同款 AI Agent 已在 Vinsoo IDE 中提供 —— 准备好加速你的开发工作流。">
+               The same AI Agent is available in Vinsoo IDE — ready to accelerate your workflow.
+            </p>
+            <div class="cta-buttons">
+                <a href="https://aiyouthlab.com" class="cta-button primary" target="_blank" data-en="Try Vinsoo IDE" data-zh="试用 Vinsoo IDE">Try Vinsoo IDE</a>
+                <a href="https://github.com/RealWorld-AI" class="cta-button secondary" target="_blank" data-en="View on GitHub" data-zh="GitHub 查看">View on GitHub</a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>
+                &copy; 2026 RealWorld.AI (Vinsoo). All rights reserved. 
+                <a href="https://aiyouthlab.com" target="_blank">aiyouthlab.com</a>
+            </p>
+            <p class="footer-note" data-en="Technical Report v1.0 | January 2026" data-zh="技术报告 v1.0 | 2026 年 1 月">Technical Report v1.0 | January 2026</p>
+        </footer>
+    </main>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

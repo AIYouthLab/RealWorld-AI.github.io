@@ -1,0 +1,75 @@
+/* Extended Tools Grid */
+.tools-grid.extended {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.tool-category {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    padding: 1.2rem;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.tool-category:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(100, 255, 218, 0.2);
+}
+
+.highlight-category {
+    background: rgba(100, 255, 218, 0.05);
+    border: 1px solid rgba(100, 255, 218, 0.1);
+}
+
+.highlight-category h4 {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
+}
+
+.tool-features {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.feature-tag {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    background: rgba(100, 255, 218, 0.15);
+    color: var(--accent-color);
+    font-family: var(--font-mono);
+    border: 1px solid rgba(100, 255, 218, 0.3);
+}
+
+/* Tool list styling */
+.tool-category ul {
+    margin-top: 0.8rem;
+    padding-left: 0;
+}
+
+.tool-category li {
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+}
+
+.tool-category li code {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    background: rgba(0, 0, 0, 0.3);
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    width: 100%;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: color 0.3s;
+}
+
+.tool-category:hover li code {
+    color: #fff;
+}

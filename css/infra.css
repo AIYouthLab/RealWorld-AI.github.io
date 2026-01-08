@@ -1,0 +1,92 @@
+/* Infrastructure Section */
+.infra-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.infra-card {
+    background: rgba(20, 20, 35, 0.4);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    overflow: hidden;
+}
+
+.infra-card:hover {
+    background: var(--card-bg);
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+    box-shadow: 0 10px 30px -10px rgba(100, 255, 218, 0.1);
+}
+
+.infra-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.infra-card:hover::before {
+    opacity: 1;
+}
+
+.infra-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 1.5rem;
+    color: var(--accent-color);
+    background: rgba(100, 255, 218, 0.1);
+    padding: 10px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.infra-desc {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+    min-height: 3em;
+}
+
+.infra-features {
+    list-style: none;
+    margin: 0;
+    width: 100%;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
+}
+
+.infra-features li {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    padding-left: 1.2rem;
+    position: relative;
+}
+
+.infra-features li::before {
+    content: '•';
+    color: var(--accent-color);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* Update h3 for infra cards */
+.infra-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
